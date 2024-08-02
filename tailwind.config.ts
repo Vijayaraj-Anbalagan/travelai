@@ -17,6 +17,16 @@ const config = {
         "2xl": "1400px",
       },
     },
+    animation: {
+      gradient: "gradient 8s linear infinite",
+    },
+    keyframes: {
+      gradient: {
+        to: {
+          backgroundPosition: "var(--bg-size) 0",
+        },
+      },
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -72,6 +82,7 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      
     },
   },
   plugins: [require("tailwindcss-animate")],

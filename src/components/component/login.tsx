@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export default function Login() {
   return (
@@ -47,7 +48,10 @@ export default function Login() {
         </div>
       </div>
       <div className="hidden bg-muted lg:block">
-        <img src="/login.svg" alt="Login" className="object-cover w-full h-full"></img>
+        <img 
+         src={"/login.svg"}
+         alt="Login" 
+         className="object-cover w-full overflow-hidden"></img>
       </div>
     </div>
   )

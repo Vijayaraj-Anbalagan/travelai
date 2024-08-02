@@ -7,10 +7,6 @@ type ItineraryRequest = {
   prompt: string;
 };
 
-type ItineraryResponse = {
-  itinerary: any[];
-};
-
 export async function POST(request: NextRequest, response: NextApiResponse) {
   const data = await request.json();
   const apiKey = 'AIzaSyBF6YqAOdiMNXKBz5tlcEAfmA7pfaN_KHc';
@@ -79,18 +75,10 @@ export async function POST(request: NextRequest, response: NextApiResponse) {
   const textResponse = await result.response.text(); // Get the raw text
   console.log('Full API Response Text:', textResponse); // Log the full response
 
-  let itineraryData;
-  try {
-    itineraryData = JSON.parse(textResponse); // Parse the JSON
-    console.log('Parsed Itinerary Data:', itineraryData); // Log parsed data
-  } catch (error) {
-    console.error('Error parsing response:', error);
-    return NextResponse.json(
-      { error: 'Failed to parse itinerary data' },
-      { status: 500 }
-    );
-  }
-
-  return NextResponse.json(itineraryData, { status: 200 });
-
+  return new NextResponse(textResponse, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    status: 200,
+  });
 }

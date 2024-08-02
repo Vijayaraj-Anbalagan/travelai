@@ -60,13 +60,18 @@ export default function Home() {
     };
 
     const handleSubmit = async () => {
-        const response = await fetch('/api/generateItinerary', {
+        const response = await fetch('/api/generateItenary', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ user: userPreferences }),
         });
         const data = await response.json();
-        console.log(data);
+
+        console.log(data)
+
+     
+        // console.log('JSon',data.user.itinerary);
+
     };
 
     return (

@@ -26,6 +26,44 @@ type UserPreferences = {
   spots: string[];
 };
 
+interface Itinerary {
+  itinerary: Day[];
+}
+
+interface Day {
+  day: string; // "day_number"
+  date: string; // "YYYY-MM-DD"
+  schedule: Schedule[];
+}
+
+interface Schedule {
+  time: string; // "HH:MM"
+  activity: Activity;
+  details: Details;
+}
+
+interface Activity {
+  'Activity Title': string; // Title of the activity
+  'Activity Description': string; // Description of the activity
+}
+
+interface Details {
+  transport: Transport;
+  food: Food;
+  stay: string; // Hotel Name with nearby location and amenities
+}
+
+interface Transport {
+  Mode: string; // Transport mode
+  'Local booking app': string; // Recommended local booking app
+}
+
+interface Food {
+  hotel: string; // Hotel name
+  menu: string; // Specialty food items
+  cost: string; // Cost range per person in INR
+}
+
 export default function Home() {
   const [userPreferences, setUserPreferences] = useState<UserPreferences>({
     name: '',
@@ -50,6 +88,7 @@ export default function Home() {
     spots: [],
   });
 
+  const [result, setResult] = useState<Itinerary>({ itinerary: [] });
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -75,8 +114,10 @@ export default function Home() {
       throw new Error('Network response was not ok');
     }
     const textData = await response.text();
+    console.log('Raw Itinerary Text:', textData);
     const data = JSON.parse(textData);
     console.log('Parsed Itinerary Data:', data);
+    setResult(data);
   };
 
   return (
@@ -327,6 +368,54 @@ export default function Home() {
         onChange={handleInputChange}
       />
       <button onClick={handleSubmit}>Submit</button>
+
+      <div className="p-4">
+        {result.itinerary.map((day, dayIndex) => (
+          <div key={dayIndex} className="mb-10">
+            <h2 className="text-3xl font-extrabold text-blue-800 mb-6">
+              {day.day} - {day.date}
+            </h2>
+            {day.schedule.map((schedule, scheduleIndex) => (
+              <div
+                key={scheduleIndex}
+                className="mb-6 p-6 bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="flex justify-between items-center mb-4">
+                  <span className="text-lg font-semibold text-blue-700">
+                    {schedule.time}
+                  </span>
+                  <span className="text-xl font-bold text-blue-900">
+                    {schedule.activity['Activity Title']}
+                  </span>
+                </div>
+                <p className="text-gray-800 mb-4">
+                  {schedule.activity['Activity Description']}
+                </p>
+                <div className="text-gray-700 mb-2">
+                  <strong>Transport:</strong> {schedule.details.transport.Mode}
+                  {schedule.details.transport['Local booking app'] && (
+                    <span>
+                      {' '}
+                      (Booking App:{' '}
+                      {schedule.details.transport['Local booking app']})
+                    </span>
+                  )}
+                </div>
+                <div className="text-gray-700 mb-2">
+                  <strong>Food:</strong> {schedule.details.food.hotel} -{' '}
+                  {schedule.details.food.menu}
+                  <span className="block text-sm text-gray-500">
+                    Cost: {schedule.details.food.cost}
+                  </span>
+                </div>
+                <div className="text-gray-700">
+                  <strong>Stay:</strong> {schedule.details.stay}
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

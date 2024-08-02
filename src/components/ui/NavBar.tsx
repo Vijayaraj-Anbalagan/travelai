@@ -14,7 +14,7 @@ function Navbar() {
         <div className="flex justify-between items-center py-4 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link href="/" 
-              className="pointer-events-none whitespace-pre-wrap text-2xl bg-gradient-to-b from-orange-600 to-gray-300/80 bg-clip-text text-center font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
+              className="pointer-events-none whitespace-pre-wrap text-2xl bg-orange-600 bg-clip-text text-center font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
                 Travela
               
             </Link>

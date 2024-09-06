@@ -13,39 +13,41 @@ export function signup() {
   return (
     <Card className="mx-auto max-w-sm">
       <CardHeader>
-        <CardTitle className="text-xl">Sign Up</CardTitle>
-        <CardDescription>Enter your information to create an account</CardDescription>
+        <CardTitle className="text-xl">Join Travela and Start Your Adventure!</CardTitle>
+        <CardDescription>Enter your details to create a travel account.</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="grid gap-4">
           <div className="grid grid-cols-2 gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="first-name">First name</Label>
-              <Input id="first-name" placeholder="Max" required />
+              <Label htmlFor="first-name">First Name</Label>
+              <Input id="first-name" placeholder="Hobby" required />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="last-name">Last name</Label>
-              <Input id="last-name" placeholder="Robinson" required />
+              <Label htmlFor="last-name">Last Name</Label>
+              <Input id="last-name" placeholder="Explorer" required />
             </div>
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" placeholder="m@example.com" required />
+            <Label htmlFor="email">Email </Label>
+            <Input id="email" type="email" placeholder="adventure@example.com" required />
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password">Create a password</Label>
             <Input id="password" type="password" />
           </div>
+          <Link href={'/pip'}>
           <Button type="submit" className="w-full bg-orange-500 hover:orange">
-            Create an account
+          Create Account and Begin Journey
           </Button>
-          <Button variant="outline" className="w-full">
-            Sign up with GitHub
+          </Link>
+          <Button variant="outline" className="w-full border-orange-500 border-2 text-orange-500">
+          Sign Up with Google for a Quick Start
           </Button>
         </div>
         <div className="mt-4 text-center text-sm">
-          Already have an account?{" "}
-          <Link href="#" className="underline" prefetch={false}>
+        Already a traveler?{" "}
+          <Link href={'/login'} className="underline" prefetch={false}>
             Sign in
           </Link>
         </div>

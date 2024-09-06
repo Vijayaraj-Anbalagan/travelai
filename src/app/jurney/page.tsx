@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import Navbar from '@/components/ui/NavBar';
 import { FiClock, FiMapPin, FiTruck, FiCoffee } from 'react-icons/fi';
-import Spinner from '@/components/ui/Spinner';
+import { MultiStepLoader } from '@/components/ui/multi-step-loader';
 
 type Preferences = {
   overall_trip: string;
@@ -104,6 +104,15 @@ const Home: React.FC = () => {
   const [result, setResult] = useState<Itinerary>({ itinerary: [] });
   const [loading, setLoading] = useState(false);
 
+  const loadingStates = [
+    { text: "Surfing over the Local for spots that tickle your interests!" },
+    { text: "Peeking through hotel windows (not literally!) to find you the perfect room..." },
+    { text: "Sniffing out the tastiest treats in town... Hope your hungry!" },
+    { text: "Wrapping up on Your Budget , so your wallet doesn't have to!" },
+    { text: "Putting all the pieces together to create your dream adventure." },
+    { text: "Hold tight, wer nearly there!" }
+  ];
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value, type } = event.target;
     const checked = type === 'checkbox' ? (event.target as HTMLInputElement).checked : false;
@@ -152,11 +161,21 @@ const Home: React.FC = () => {
     document.getElementById('result-section')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  useEffect(() => {
+    if (!loading && result.itinerary.length > 0) {
+      document.getElementById('result-section')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [loading, result]);
+
   return (
     <div className="min-h-screen bg-gray-100 p-8">
       <Navbar />
       <h1 className="text-3xl font-bold text-center text-orange-500 mt-10 mb-5">Travel Itinerary Generator</h1>
-      <Card className="max-w-4xl mx-auto">
+      {loading ? (
+        <MultiStepLoader loadingStates={loadingStates} loading={loading} />
+      ) : (
+        <Card className="max-w-4xl mx-auto">
+         <Card className="max-w-4xl mx-auto">
         <CardHeader>
           <CardTitle>User Preferences</CardTitle>
           <CardDescription>Fill out the form to generate your travel itinerary</CardDescription>
@@ -224,7 +243,7 @@ const Home: React.FC = () => {
                 'wildlife safari', 'shopping', 'museum', 'zoo', 'aquarium', 'theater', 'concert', 'pub', 'restaurant', 'cafe', 'bar','amusement park'
               ].map(activity => (
                 <div key={activity} className="flex items-center space-x-2 capitalize">
-                  <Checkbox id={activity} name="preferences.activities" value={activity} />
+                  <Checkbox id={activity} name="preferences.activities" value={activity} onChange={handleInputChange} />
                   <Label htmlFor={activity}>{activity}</Label>
                 </div>
               ))}
@@ -281,6 +300,8 @@ const Home: React.FC = () => {
           </Card>
         ))}
       </div>
+        </Card>
+      )}
     </div>
   );
 };

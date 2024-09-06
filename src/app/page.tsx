@@ -34,7 +34,7 @@ const HomePage = () => {
         <Globe className="absolute lg:top-1/2 w-full max-w-4xl h-auto opacity-50" />
         </div>
         <div className="flex justify-center p-4">
-        <Link className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 mb-7 rounded-full transition-colors duration-300 z-50 border-white border" href={'/login'}>
+        <Link className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 mb-7 rounded-full transition-colors duration-300 z-50 border-white border-2 hover:scale-105 transition-transform" href={'/login'}>
         Get Started <span className="ml-1">&#8594;</span>
     </Link>
       </div>

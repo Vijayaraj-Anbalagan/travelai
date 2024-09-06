@@ -17,7 +17,7 @@ export async function POST(request: NextRequest, response: NextApiResponse) {
   });
 
   const prompt = `
-  Create a personalized ${data.user.no_of_days}-days itinerary for ${data.user.no_of_days}, a ${data.user.age}years old, ${data.user.food_preferences} couple traveling from ${data.user.starting_place} to ${data.user.destination} on a budget of ${data.user.budget}. The itinerary should focus on sightseeing and physical activities, including amusement parks and clubbing. Provide details such as daily_activities, timings, food, transport, and accommodation. Ensure to include local insights, and give the following in the bellow format. Provide the response as JSON only. Do not provide the notes in response"
+  Create a personalized ${data.user.no_of_days}-days itinerary for ${data.user.no_of_days} starting from ${data.user.from_date} and to ${data.user.to_date}, a ${data.user.age}years old, ${data.user.food_preferences} couple traveling from ${data.user.starting_place} to ${data.user.destination} on a budget of ${data.user.budget}. The itinerary should focus on sightseeing and physical activities, including amusement parks and clubbing. Provide details such as daily_activities, timings, food, transport, and accommodation. Ensure to include local insights, and give the following in the bellow format. Provide the response as JSON only. Do not provide the notes in response"
   {
    "itinerary": [
      {

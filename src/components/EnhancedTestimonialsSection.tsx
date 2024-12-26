@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 interface TestimonialCardProps {
@@ -31,12 +30,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       </div>
       <div className="mt-auto flex items-center gap-4">
         <div className="flex-shrink-0 w-12 h-12 relative">
-          <Image 
+          <img 
             src={imageUrl}
             alt={`${author}'s profile`}
-            width={48}
-            height={48}
-            className="rounded-full border border-orange-500/20 object-cover"
+            className="rounded-full border border-orange-500/20 object-cover w-full h-full"
           />
         </div>
         <div className="flex-grow border-t border-orange-500/20 pt-4">

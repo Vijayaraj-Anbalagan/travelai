@@ -56,14 +56,14 @@ const TestimonialsSection = () => {
       author: "Mr. Dhanush N",
       role: "Founder and CEO",
       company: "Interain Intelligence",
-      imageUrl: "/api/placeholder/48/48"
+      imageUrl: "https://media.licdn.com/dms/image/v2/D5603AQELH8WnHoclkA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1718479089192?e=1740614400&v=beta&t=89JsLnV4TwRLRHV67xmfRzOEGG7ytbsuFFL5h2R0V6k"
     },
     {
       content: "Travela's B2B and B2C business model is strategically aligned with revenue opportunities, ensuring it can capture both individual and corporate clients. The product's market positioning and readiness make it well-suited to deliver significant value.",
       author: "Mr. Sakthivel Shanmugam",
       role: "Senior Engineer",
       company: "Maker Labs",
-      imageUrl: "/api/placeholder/48/48"
+      imageUrl: "https://media.licdn.com/dms/image/v2/D5603AQE2yPmC9DvDAA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1694529615076?e=1740614400&v=beta&t=BFCwamtiwH0oxgMOLprn27Ac7A7ZD05W1_AMGraAeyk"
     }
   ];
 

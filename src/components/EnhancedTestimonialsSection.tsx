@@ -32,7 +32,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       <div className="mt-auto flex items-center gap-4">
         <div className="flex-shrink-0 w-12 h-12 relative">
           <Image 
-            src="/api/placeholder/48/48"
+            src={imageUrl}
             alt={`${author}'s profile`}
             width={48}
             height={48}

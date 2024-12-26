@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Globe2, Users, Shield, TrendingUp } from "lucide-react";
+import { Globe2, Users, Shield, TrendingUp, Layers, CheckCircle, Clock } from "lucide-react";
 
 interface StatCardProps {
     icon: React.ReactNode;
@@ -39,27 +39,27 @@ interface StatCardProps {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <StatCard 
           icon={<Globe2 className="w-6 h-6 text-orange-500" />}
-          title="Market Coverage"
-          value="200+"
-          description="Cities worldwide where we aim to provide personalized travel experiences"
+          title="Integrations"
+          value="5+"
+          description="Unique features for seamless travel planning and execution"
         />
         <StatCard 
-          icon={<Users className="w-6 h-6 text-orange-500" />}
-          title="Target Users"
-          value="100k+"
-          description="Projected user base in first year across B2B and B2C segments"
+          icon={<Layers  className="w-6 h-6 text-orange-500" />}
+          title="Modules"
+          value="10+"
+          description="Customizable modules for personalized travel experiences"
         />
         <StatCard 
-          icon={<Shield className="w-6 h-6 text-orange-500" />}
-          title="Safety Score"
-          value="99.9%"
-          description="Targeted accuracy in real-time safety alerts and recommendations"
+          icon={<CheckCircle  className="w-6 h-6 text-orange-500" />}
+          title="Itinerary Accuracy"
+          value="90%"
+          description="Accuracy in travel plans and real-time updates"
         />
         <StatCard 
-          icon={<TrendingUp className="w-6 h-6 text-orange-500" />}
-          title="AI Efficiency"
-          value="85%"
-          description="Reduction in travel planning time compared to traditional methods"
+          icon={<Clock  className="w-6 h-6 text-orange-500" />}
+          title="Efficiency"
+          value="50%"
+          description="Time saved in planning and executing travel plans"
         />
       </div>
     </div>

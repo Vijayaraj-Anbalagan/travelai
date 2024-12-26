@@ -243,7 +243,7 @@ const Home: React.FC = () => {
                 'wildlife safari', 'shopping', 'museum', 'zoo', 'aquarium', 'theater', 'concert', 'pub', 'restaurant', 'cafe', 'bar','amusement park'
               ].map(activity => (
                 <div key={activity} className="flex items-center space-x-2 capitalize">
-                  <Checkbox id={activity} name="preferences.activities" value={activity} onChange={handleInputChange} />
+                  <Checkbox id={activity} name="preferences.activities" value={activity} />
                   <Label htmlFor={activity}>{activity}</Label>
                 </div>
               ))}

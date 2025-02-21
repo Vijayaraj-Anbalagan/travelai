@@ -145,7 +145,7 @@ const Home: React.FC = () => {
   const handleSubmit = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
     setLoading(true);
-    const response = await fetch('/api/generateItenary', {
+    const response = await fetch('/api/init', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ user: userPreferences }),

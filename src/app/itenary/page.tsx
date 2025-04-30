@@ -1075,7 +1075,7 @@ const Home: React.FC = () => {
                     <TabsTrigger value="day-by-day" className="flex-1 py-3 data-[state=active]:bg-white data-[state=active]:shadow-none">
                       Day-by-Day
                     </TabsTrigger>
-                  </TabsList>
+                    </TabsList>
                   
                   <TabsContent value="timeline" className="p-0">
                     <div className="p-4">
@@ -1184,7 +1184,7 @@ const Home: React.FC = () => {
                                         <FiCoffee className="text-orange-500 mt-1 flex-shrink-0" />
                                         <div className="text-sm">
                                           <p className="font-medium text-gray-700">Food</p>
-                                          <p className="text-gray-600">
+                                          <p className="text-gray-600 text-sm">
                                             {schedule.details.food?.hotel ? 
                                               `${schedule.details.food.hotel} - ${schedule.details.food.menu || 'Local cuisine'}` : 
                                               'Local dining options available'
@@ -1192,12 +1192,7 @@ const Home: React.FC = () => {
                                           </p>
                                           {schedule.details.food?.cost && (
                                             <p className="text-gray-500 text-xs mt-1">
-                                              Cost: {schedule.details.food.cost}
-                                            </p>
-                                          )}
-                                          {schedule.details.food?.dietary_options && (
-                                            <p className="text-gray-500 text-xs">
-                                              Options: {schedule.details.food.dietary_options}
+                                              Approx: {schedule.details.food.cost}
                                             </p>
                                           )}
                                         </div>
@@ -1310,10 +1305,17 @@ const Home: React.FC = () => {
                                     <FiCoffee className="text-orange-500 mt-1 flex-shrink-0" />
                                     <div>
                                       <p className="font-medium text-gray-700">Food</p>
-                                      <p className="text-gray-600 text-sm">{schedule.details.food.hotel} - {schedule.details.food.menu}</p>
-                                      <p className="text-gray-500 text-xs mt-1">
-                                      Approx: {schedule.details.food.cost}
+                                      <p className="text-gray-600 text-sm">
+                                        {schedule.details.food?.hotel ? 
+                                          `${schedule.details.food.hotel} - ${schedule.details.food.menu || 'Local cuisine'}` : 
+                                          'Local dining options available'
+                                        }
                                       </p>
+                                      {schedule.details.food?.cost && (
+                                        <p className="text-gray-500 text-xs mt-1">
+                                          Approx: {schedule.details.food.cost}
+                                        </p>
+                                      )}
                                     </div>
                                   </div>
                                   
@@ -1375,6 +1377,18 @@ const Home: React.FC = () => {
           )}
         </div>
       </div>
+      
+      {/* Flight Search Modal */}
+      {showFlightSearch && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="w-full max-w-5xl max-h-[90vh] overflow-auto bg-white rounded-lg shadow-xl">
+            <FlightSearch
+              userPreferences={userPreferences}
+              onClose={() => setShowFlightSearch(false)}
+            />
+          </div>
+        </div>
+      )}
       
       <div className="max-w-5xl mx-auto px-4 py-8">
         {loading ? (

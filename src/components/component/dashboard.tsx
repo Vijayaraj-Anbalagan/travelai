@@ -32,7 +32,7 @@ export function dashboard() {
               <CardTitle>Quick Actions</CardTitle>
             </CardHeader>
             <CardContent className="flex items-center justify-center">
-             <Link href={'/jurney'}> <Button className="w-full max-w-[200px] bg-orange-500 hover:bg-orange-600 text-primary-foreground">Create Itinerary +</Button></Link>
+             <Link href={'/itenary'}> <Button className="w-full max-w-[200px] bg-orange-500 hover:bg-orange-600 text-primary-foreground">Create Itinerary +</Button></Link>
             </CardContent>
           </Card>
           <Card className="col-span-2 lg:col-span-2">

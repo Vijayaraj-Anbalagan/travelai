@@ -80,7 +80,7 @@ interface PricingFeature {
         />
         <PricingTier
           name="Globetrotter"
-          price="$9.99/mo"
+          price="₹799/Yr"
           description="For frequent travelers"
           isPopular={true}
           features={[
@@ -94,7 +94,7 @@ interface PricingFeature {
         />
         <PricingTier
           name="Adventurer Pro"
-          price="$19.99/mo"
+          price="₹1499/Yr"
           description="Ultimate travel companion"
           features={[
             { feature: "Premium AI Planning", included: true },

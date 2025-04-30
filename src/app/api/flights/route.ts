@@ -5,7 +5,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 // SerpAPI key - should be moved to environment variables in production
 const serpApiKey = process.env.SERPAPI_KEY || 'e00f20c5fa1072b64229407de0a3d8dd4786a3cfd36fb4e72b72d3e388c6a103';
 // Gemini AI key - should be moved to environment variables in production
-const geminiApiKey = process.env.GEMINI_API_KEY || 'AIzaSyAIO77977F9aqKudDVzWhlW6zHsLf4VC0k';
+const geminiApiKey = process.env.GEMINI_API_KEY || 'AIzaSyCsp89AqfBLbnDhtctoHoLKKmtvPZwnYg8';
 
 // Initialize Gemini AI
 const genAI = new GoogleGenerativeAI(geminiApiKey);

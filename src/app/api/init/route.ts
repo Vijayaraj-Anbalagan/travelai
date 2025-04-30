@@ -9,7 +9,7 @@ type ItineraryRequest = {
 
 export async function POST(request: NextRequest, response: NextApiResponse) {
   const data = await request.json();
-  const apiKey = process.env.GEMINI_API_KEY || 'AIzaSyAIO77977F9aqKudDVzWhlW6zHsLf4VC0k';
+  const apiKey = process.env.GEMINI_API_KEY || 'AIzaSyCsp89AqfBLbnDhtctoHoLKKmtvPZwnYg8';
   const genAI = new GoogleGenerativeAI(apiKey);
 
   const model = genAI.getGenerativeModel({
